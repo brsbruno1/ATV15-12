@@ -34,7 +34,7 @@ int realizarCompra(struct Produto meuProduto)
 
 int main()
 {
-    struct Produto meuProduto = {"Produto A", 10.0, 50};
+    struct Produto meuProduto 
 
     int opcao;
 
