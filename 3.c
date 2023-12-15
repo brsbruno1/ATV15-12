@@ -13,17 +13,18 @@ float calcularTotal(struct Produto meuProduto)
     return meuProduto.preco * meuProduto.quantidade;
 }
 
-void realizarCompra(struct Produto meuProduto)
+int realizarCompra(struct Produto meuProduto)
 {
-    int quantidadeCompra;
-    meuProduto.quantidade = 50;
+    int estoque =50 ,quantidadeCompra;
+    
     printf("Informe a quantidade a ser comprada: ");
     scanf("%d", &quantidadeCompra);
 
     if ((quantidadeCompra > 0) && (quantidadeCompra <= meuProduto.quantidade))
     {
-        meuProduto.quantidade -= quantidadeCompra;
+        estoque -= quantidadeCompra;
         printf("Compra realizada com sucesso!\n");
+        return estoque;
     }
     else
     {
@@ -52,7 +53,7 @@ int main()
             realizarCompra(meuProduto);
             break;
         case 2:
-            printf("Estoque disponivel: %d unidades\n", meuProduto.quantidade);
+            printf("Estoque disponivel: %d unidades\n", realizarCompra(meuProduto));
             printf("Valor total em estoque: R$ %.2f\n", calcularTotal(meuProduto));
             break;
         case 3:
